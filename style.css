@@ -6,32 +6,46 @@
 }
 
 body {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url(/img/Fondo.jpg);
+    background-image: url(/InnVateLogin/img/Fondo.jpg);
     background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Capa de sombra negra */
+    backdrop-filter: blur(5px); /* Desenfoque */
+    z-index: -1;
 }
 
 .container-form {
-    display:flex;
+    display: flex;
     border-radius: 20px;
     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
-    max-width: 900px;
-    height: 500px;
+    max-width: 800px; /* Reducido de 900px a 800px */
+    height: 450px; /* Reducido de 500px a 450px */
     transition: all 1s ease;
-    margin: 10px;
+    margin: 20px; /* Aumentado el margen para dar más espacio */
 }
 
 .information {
-width: 40%;
-display: flex;
-align-items: center;
-text-align: center;
-background-color: #9191bd;
-border-top-left-radius: 20px;
-border-bottom-left-radius: 20px;
+    width: 35%; /* Reducido de 40% a 35% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #9191bd;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .info-childs {
@@ -59,6 +73,7 @@ border-bottom-left-radius: 20px;
     cursor: pointer;
     transition: background-color .3 ease;
 }
+
 .info-childs input:hover {
     background-color: #FFF;
     border: none;
@@ -70,7 +85,7 @@ border-bottom-left-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 65%; /* Reducido de 60% a 65% */
     text-align: center;
     background-color: #FFF;
     border-top-right-radius: 20px;
@@ -84,10 +99,12 @@ border-bottom-left-radius: 20px;
 .form-information-childs h2 {
     color: #333;
     font-size: 2rem;
+    margin-bottom: 10px; /* Agrega un pequeño espacio debajo del h2 */
 }
 
 .form-information-childs p {
     color: #555;
+    margin-top: 30px; /* Opcional: Puedes usar esto para agregar espacio arriba del p */
 }
 
 .icons {
@@ -138,7 +155,7 @@ border-bottom-left-radius: 20px;
     color: #7a7a7a;
 }
 
-.form input[type="submit"] {
+.form button {
     background-color: #FFF;
     color: #000;
     border-radius: 20px;
@@ -149,7 +166,7 @@ border-bottom-left-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 }
 
-.form input[type="submit"]:hover {
+.form button:hover {
     background-color: #9191bd;
 }
 
@@ -160,40 +177,35 @@ border-bottom-left-radius: 20px;
 
 /* Responsive */
 
-
-
-@media screen and (max-widht: 750px) {
+@media screen and (max-width: 750px) {
     html {
         font-size: 12px;
     }
 } 
 
-@media screen and (max-widht: 580px) {
+@media screen and (max-width: 580px) {
     html {
         font-size: 10px;
     }
 
+    .container-form {
+        flex-direction: column;
+        height: auto;
+    }
 
-.container-form {
-    flex-direction: column;
-    height: auto;
-}
+    .information {
+        width: 100%;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    } 
 
-
-.information {
-    width: 100%;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
- } 
-
- .form-information {
-    width: 100%;
-    padding: 20px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 20px;
-
- }
+    .form-information {
+        width: 100%;
+        padding: 20px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 20px;
+    }
 }
